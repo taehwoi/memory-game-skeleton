@@ -16,6 +16,8 @@ class App extends Component {
   
   // number of same cards in a deck
   same_cards = 2;
+  // type of cards
+  pool = '0123456789ABCDEF'.split('');
   // cards that are flipped (but not correct, yet)
   opened_cards = [];
 
@@ -25,11 +27,10 @@ class App extends Component {
   };
 
   initGame = () => {
-    const pool = '0123456789ABCDEF'.split('');
     let cards = [];
     for (var i = 0; i < this.same_cards; i++) {
       cards = cards.concat(
-        shuffle(pool).map(val => {
+        shuffle(this.pool).map(val => {
           return ( {
             //TODO: populate the list with properties of Object
           })}))
@@ -44,6 +45,7 @@ class App extends Component {
   //TODO: implement me
   handleToggle = () => {}
 
+  //open upto same_cards to see if user's choice is correct or not
   tempOpen = async (id, value) => {
     this.opened_cards.push({ id: id, value: value });
 

@@ -5,7 +5,7 @@ import Timer from './components/Timer';
 import Grid from './components/Grid';
 import ScoreBoard from './components/ScoreBoard';
 
-import shuffle from './utils';
+import {shuffle} from './utils';
 
 
 class App extends Component {
@@ -74,8 +74,8 @@ class App extends Component {
     return (
       <div className="App">
         <h3>Memory Game</h3>
-        <Grid /> {/* TODO: add property */}
-        <ScoreBoard /> {/* TODO: add property */}
+        {/* <Grid /> TODO: add property */}
+        {/* <ScoreBoard /> */}
         <Timer running={!done}/>
         {!done && <button onClick={this.initGame}> Start </button>}
       </div>

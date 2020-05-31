@@ -49,7 +49,10 @@ class App extends Component {
   tempOpen = async (id, value) => {
     this.opened_cards.push({ id: id, value: value });
 
-    //opened a wrong card
+    // opened a wrong card :
+    // since every card in opened_cards should have same value,
+    // if the first card value !== last(just opened) value,
+    // it means that the last card was wrong choice.
     if (this.opened_cards[0].value !== this.opened_cards.slice(-1)[0].value) {
       await new Promise(r => setTimeout(r, 700)); // show card briefly
       for (var x of this.opened_cards) {
@@ -74,8 +77,8 @@ class App extends Component {
     return (
       <div className="App">
         <h3>Memory Game</h3>
-        {/* <Grid /> TODO: add property */}
-        {/* <ScoreBoard /> */}
+        {/* <Grid /> TODO: look at Grid.js to see which props to pass */}
+        {/* <ScoreBoard /> TODO: what should be passed to scoreBoard? */}
         <Timer running={!done}/>
         {!done && <button onClick={this.initGame}> Start </button>}
       </div>

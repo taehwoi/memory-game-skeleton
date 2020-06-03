@@ -55,11 +55,8 @@ class App extends Component {
     // it means that the last card was wrong choice.
     if (this.opened_cards[0].value !== this.opened_cards.slice(-1)[0].value) {
       await new Promise(r => setTimeout(r, 700)); // show card briefly
-      for (var x of this.opened_cards) {
-        this.handleToggle(x.id) // return the temporary open cards to hidden position
-      }
-      //reset the open cards
-      this.opened_cards = [];
+      this.opened_cards.map((x) => this.handleToggle(x.id)) // flip back the open cards
+      this.opened_cards = []; //reset the open cards
     }
     else if (this.opened_cards.length === this.same_cards) {
       // if we have chosen all the cards with certain value

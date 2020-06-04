@@ -53,7 +53,7 @@ class App extends Component {
     // since every card in opened_cards should have same value,
     // if the first card value !== last(just opened) value,
     // it means that the last card was wrong choice.
-    if (this.opened_cards[0].value !== this.opened_cards.slice(-1)[0].value) {
+    if (this.opened_cards[0].value !== value) {
       await new Promise(r => setTimeout(r, 700)); // show card briefly
       this.opened_cards.map((x) => this.handleToggle(x.id)) // flip back the open cards
       this.opened_cards = []; //reset the open cards
